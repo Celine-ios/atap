@@ -13,5 +13,11 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/spends/edit/index.html'
 	}).when('/asignaciones', {
 		templateUrl: 'assets/templates/assignaments/index.html'
+	}).when('/facturacion', {
+		templateUrl: 'assets/templates/bills/index.html'
+	}).when('/orden-trabajo', {
+		templateUrl:'assets/templates/orders/workorders/index.html'
+	}).when('/orden-trabajo-detalle', {
+		templateUrl:'assets/templates/orders/workorders/detail/index.html'
 	});
 });
