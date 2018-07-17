@@ -3,5 +3,7 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/home/index.html'
 	}).when('/ordenes', {
 		templateUrl: 'assets/templates/orders/index.html'
+	}).when('/reporte_movimientos', {
+		templateUrl: 'assets/templates/movements_report/index.html'
 	});
 });
