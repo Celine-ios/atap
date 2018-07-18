@@ -31,5 +31,7 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/services/edit/index.html'
 	}).when('/revision', {
 		templateUrl: 'assets/templates/review/index.html'
+	}).when('/proveedores', {
+		templateUrl: 'assets/templates/providers/index.html'
 	});
 });
