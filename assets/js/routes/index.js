@@ -19,5 +19,7 @@ app.config(function($routeProvider) {
 		templateUrl:'assets/templates/orders/workorders/index.html'
 	}).when('/orden-trabajo-detalle', {
 		templateUrl:'assets/templates/orders/workorders/detail/index.html'
+	}).when('/agregar-servicio', {
+		templateUrl: 'assets/templates/services/add/index.html'
 	});
 });
