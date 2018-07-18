@@ -21,5 +21,15 @@ app.config(function($routeProvider) {
 		templateUrl:'assets/templates/orders/workorders/detail/index.html'
 	}).when('/agregar-servicio', {
 		templateUrl: 'assets/templates/services/add/index.html'
+	}).when('/cotizaciones', {
+		templateUrl: 'assets/templates/quotations/index.html'
+	}).when('/agregar-cotizaciones', {
+		templateUrl: 'assets/templates/quotations/add/index.html'
+	}).when('/servicios', {
+		templateUrl: 'assets/templates/services/index.html'
+	}).when('/editar-servicios', {
+		templateUrl: 'assets/templates/services/edit/index.html'
+	}).when('/revision', {
+		templateUrl: 'assets/templates/review/index.html'
 	});
 });
