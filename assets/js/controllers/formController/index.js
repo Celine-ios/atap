@@ -1,0 +1,46 @@
+app.controller('formControl', function($scope, $http){
+		$scope.send = function(event, type) {
+			switch(type) {
+				case 'spends-add':
+			var spendDay = document.getElementsByName('spendDay')[0].value;
+			var serviceType = document.getElementsByName('serviceType')[0].value;
+			var provider = document.getElementsByName('provider')[0].value;
+			var description = document.getElementsByName('description')[0].value;
+			var importe = document.getElementsByName('import')[0].value;
+			var tax = document.getElementsByName('tax')[0].value;
+			var spend = document.getElementsByName('spend')[0].value;
+			var folio = document.getElementsByName('folio')[0].value;
+			var notes = document.getElementsByName('notes')[0].value;
+			
+			if (document.getElementsByName('file')[0].files[0]) {
+				var file = document.getElementsByName('file')[0].files[0];    
+				var filename = file.name;
+				var checkf = filename.indexOf('pdf');
+				if (checkf == -1) {
+				  alert("El formato debe de ser PDF");
+				  return;  
+				} 
+			}
+			$http.post('assets/php/forms/spends/add/index.php', {
+				spendDay: spendDay,
+				serviceType: serviceType,
+				provider: provider,
+				description: description,
+				import: importe,
+				tax: tax,
+				spend: spend,
+				folio: folio,
+				notes: notes,
+				comp: filename
+
+			}).then(function(response) {
+				console.log(response);
+			},function(response) {
+				console.log(response);
+			});
+			break;
+
+			}
+			
+		};	
+});

@@ -3,20 +3,22 @@
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
 </div>
 <div class="container" style="display: flex;justify-content: center;width: 100%;">
-	<form action="" style="width: 100%;">
+	<form action="" style="width: 100%;" enctype="multipart/form-data" name="form">
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Tipo de Servicio</label>
-				<select name="" id="" class="form-control">
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
+				<select class="form-control" name="serviceType" ng-model="serviceType" required>
+					<option value="">Insumo</option>
+					<option value="">Servicio</option>
+					<option value="">Transporte</option>
+					<option value="">Asesoría</option>
+					<option value="">Arrendamiento</option>
+					<option value="">Otros</option>
 				</select>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Proveedor</label>
-				<select name="" id="" class="form-control">
+				<select class="form-control" name="provider" ng-model="provider" required>
 					<option value="">Opción</option>
 					<option value="">Opción</option>
 					<option value="">Opción</option>
@@ -27,49 +29,56 @@
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Fecha del Gasto</label>
-				<input type="date" class="form-control">
+				<input type="date" class="form-control" name="spendDay" ng-model="spendDay" required>
+				<span class="ng-formie" ng-show="form.spendDay.$invalid && form.spendDay.$touched">El campo es requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Descripción</label>
-				<input type="text" name="" id="" class="form-control">
+				<input type="text" class="form-control" name="description" ng-model="description" required>
+				<span class="ng-formie" ng-show="form.description.$invalid && form.description.$touched">El campo es requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Importe</label>
-				<input type="text" name="" id="" class="form-control">
+				<input type="text" class="form-control" ng-model="import" required name="import">
+				<span class="ng-formie" ng-show="form.import.$invalid && form.import.$touched">El campo es requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Impuesto</label>
-				<input type="text" name="" id="" class="form-control">
+				<input type="text" class="form-control" name="tax" ng-model="tax" required>
+				<span class="ng-formie" ng-show="form.tax.$invalid && form.tax.$touched">El campo es requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Gasto</label>
-				<input type="text" name="" id="" class="form-control">
+				<input type="number" class="form-control" name="spend" ng-model="spend" required>
+				<span class="ng-formie" ng-show="form.spend.$invalid && form.spend.$touched">El campo es requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Folio</label>
-				<input type="text" name="" id="" class="form-control">
+				<input type="text" class="form-control" maxlength="25" name="folio" ng-model="folio" required>
+				<span class="ng-formie" ng-show="form.folio.$invalid && form.folio.$touched">El campo es requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-8">
 				<label for="">Notas</label>
-				<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+				<textarea cols="30" rows="4" class="form-control" maxlength="500" name="notes" ng-model="notes" required></textarea>
+				<span class="ng-formie" ng-show="form.notes.$invalid && form.notes.$touched">El campo es requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
-			<div class="col-sm-8">
+			<div class="col-sm-8" ng-controller="fileControl">
 				<label for="">Comprobante</label>
-				<input type="text" name="" id="" class="form-control">
+				<input type="file" name="file" class="form-control" ng-change="checkFormat($event)" name="file" ng-model="file">
 			</div>
 		</div>
 		<br>
 		<div class="row" style="display: flex;justify-content: center;">
-			<div class="col-sm-8" style="display: flex;justify-content: center;">
-				<button class="btn btn-primary btn-lg" type="submit">Guardar</button>
+			<div class="col-sm-8" style="display: flex;justify-content: center;" ng-controller="formControl">
+				<button class="btn btn-primary btn-lg" type="button" ng-click="send($event, 'spends-add');">Guardar</button>
 			</div>
 		</div>
 	</form>
