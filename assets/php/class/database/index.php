@@ -19,7 +19,12 @@
 		}
 		function q($con, $query) {
 			$q = mysqli_query($con, $query);
-			return $q; 
+			if ($q) {
+				return $q; 
+			} else {
+				return die('ERROR: '.mysqli_error($con));
+			}
+			
 		}
 	}
  ?>

@@ -21,6 +21,7 @@ app.controller('formControl', function($scope, $http){
 				  return;  
 				} 
 			}
+
 			$http.post('assets/php/forms/spends/add/index.php', {
 				spendDay: spendDay,
 				serviceType: serviceType,
@@ -42,6 +43,8 @@ app.controller('formControl', function($scope, $http){
 				console.log(response);
 			});
 			break;
+
+			case 'spends-edit':
 
 			}
 			

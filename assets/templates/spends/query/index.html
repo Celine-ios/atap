@@ -3,48 +3,19 @@
 	<h1>Consultar Gastos</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
 </div>
-<div class="modal" tabindex="-1" role="dialog" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Acciones</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<div class="row" style="display: flex;justify-content: center;">
-			<div class="col-sm-3">
-				<a href="#!agregar-gastos">
-				<button class="btn btn-primary">Agregar</button>
-				</a>
-			</div>
-			<div class="col-sm-3">
-				<a href="#!editar-gastos">
-				<button class="btn btn-primary">Editar</button>
-				</a>
-			</div>
-		</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container" style="display: flex;flex-direction: row;margin: 2% 2%;">
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<label for="">Proveedor</label>
-			<select name="" id="" class="form-control">
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
+			<select name="proveedor" class="form-control">
+					<option value="proveedor1">Opción</option>
+					<option value="proveedor2">Opción</option>
+					<option value="proveedor3">Opción</option>
+					<option value="proveedor4">Opción</option>
 			</select>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 		    <label for="">Tipo de Servicio</label>
-            <select class="form-control">
+            <select class="form-control" name="tipo_servicio">
 					<option value="insumo">Insumo</option>
 					<option value="Servicio">Servicio</option>
 					<option value="Transporte">Transporte</option>
@@ -53,17 +24,20 @@
 					<option value="Otros">Otros</option>
 			</select>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<label for="" style="text-align: center;">Período</label>
 			<div style="display: flex;justify-content: center;flex-direction: row;">
-			<input type="date" class="form-control" style="margin-right: 2%;">
-			<input type="date" class="form-control">
+			<input type="date" class="form-control" style="margin-right: 2%;" name="periodo_inicio">
+			<input type="date" class="form-control" name="periodo_final">
 			</div>
+		</div>
+		<div class="col-sm-3" style="display: flex;align-items: flex-end;">
+			<button class="btn btn-success" ng-click="searchFilter();">Buscar</button>
 		</div>
 			</div>
 <div class="container">
 	<table class="table table-light table-striped">
-		<thead style="background: blue;color: #fff;" ng-mouseover="searchSpends();">
+		<thead style="background: blue;color: #fff;">
 			<th>Fecha</th>
 			<th>Folio</th>
 			<th>Proveedor</th>
@@ -73,7 +47,7 @@
 			<th>Importe</th>
 		</thead>
 		<tbody>
-			<tr ng-repeat="spend in spends" data-toggle="modal" data-target="#myModal">
+			<tr ng-repeat="spend in spends">
 				<td>{{spend.fecha_gasto}}</td>
 				<td>{{spend.folio}}</td>
 				<td>{{spend.proveedor}}</td>
@@ -84,5 +58,11 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="container" style="display: flex;justify-content: center;">
+	<div style="display: flex;flex-direction: row;">
+		<button class="btn btn-primary" ng-click="searchSpends();">Mostrar</button>
+		<a href="#!agregar-gastos" style="margin-left: 2%;"><button class="btn btn-primary">Agregar</button></a>
+	</div>
 </div>
 </div>
