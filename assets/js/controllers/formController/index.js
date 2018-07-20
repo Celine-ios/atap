@@ -34,7 +34,10 @@ app.controller('formControl', function($scope, $http){
 				comp: filename
 
 			}).then(function(response) {
-				console.log(response);
+				
+				  	alert("Se ha agregado el gasto correctamente");  
+				  	console.log(response);
+				 
 			},function(response) {
 				console.log(response);
 			});

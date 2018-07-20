@@ -2,6 +2,35 @@
 	<h1>Consultar Gastos</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
 </div>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<div class="row">
+			<div class="col-sm-3">
+				<a href="#!agregar-gastos">
+				<button class="btn btn-primary">Agregar</button>
+				</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="#!editar-gastos">
+				<button class="btn btn-primary">Editar</button>
+				</a>
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container" style="display: flex;flex-direction: row;margin: 2% 2%;">
 		<div class="col-sm-4">
 			<label for="">Proveedor</label>
@@ -15,23 +44,25 @@
 		<div class="col-sm-4">
 		    <label for="">Tipo de Servicio</label>
             <select name="" id="" class="form-control">
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
+					<option value="">Insumo</option>
+					<option value="">Servicio</option>
+					<option value="">Transporte</option>
+					<option value="">Asesoría</option>
+					<option value="">Arrendamiento</option>
+					<option value="">Otros</option>
 			</select>
 		</div>
 		<div class="col-sm-4">
 			<label for="" style="text-align: center;">Período</label>
 			<div style="display: flex;justify-content: center;flex-direction: row;">
-			<input type="date" name="" id="" class="form-control" style="margin-right: 2%;">
-			<input type="date" name="" id="" class="form-control">
+			<input type="date" class="form-control" style="margin-right: 2%;">
+			<input type="date" class="form-control">
 			</div>
 		</div>
 			</div>
 <div class="container">
-	<table class="table table-light table-striped">
-		<thead style="background: blue;color: #fff;">
+	<table class="table table-light table-striped" ng-controller="spendsControl">
+		<thead style="background: blue;color: #fff;" ng-mouseover="searchSpends();">
 			<th>Fecha</th>
 			<th>Folio</th>
 			<th>Proveedor</th>
@@ -41,41 +72,14 @@
 			<th>Importe</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr ng-repeat="spend in spends" data-toggle="modal" data-target="#myModal">
+				<td>{{spend.fecha_gasto}}</td>
+				<td>{{spend.folio}}</td>
+				<td>{{spend.proveedor}}</td>
+				<td>{{spend.tipo_servicio}}</td>
+				<td>{{spend.gasto}}</td>
+				<td>{{spend.impuesto}}</td>
+				<td>{{spend.importe}}</td>
 			</tr>
 		</tbody>
 	</table>
