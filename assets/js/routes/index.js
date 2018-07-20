@@ -37,5 +37,9 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/providers/add/index.html'
 	}).when('/cuentas', {
 		templateUrl: 'assets/templates/accounts/index.html'
+	}).when('/agregar-cuentas', {
+		templateUrl: 'assets/templates/accounts/add/index.html'
+	}).when('/usuarios', {
+		templateUrl: 'assets/templates/users/index.html'
 	});
 });
