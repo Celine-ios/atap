@@ -19,7 +19,7 @@ app.config(function($routeProvider) {
 		templateUrl:'assets/templates/orders/workorders/index.html'
 	}).when('/orden-trabajo-detalle', {
 		templateUrl:'assets/templates/orders/workorders/detail/index.html'
-	}).when('/agregar-servicio', {
+	}).when('/agregar-servicios', {
 		templateUrl: 'assets/templates/services/add/index.html'
 	}).when('/cotizaciones', {
 		templateUrl: 'assets/templates/quotations/index.html'

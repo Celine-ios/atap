@@ -1,3 +1,4 @@
+<div ng-controller="spendsControl">
 <div class="container" style="text-align: center;">
 	<h1>Consultar Gastos</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -6,13 +7,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Acciones</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-		<div class="row">
+		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-3">
 				<a href="#!agregar-gastos">
 				<button class="btn btn-primary">Agregar</button>
@@ -26,7 +27,7 @@
 		</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -43,13 +44,13 @@
 		</div>
 		<div class="col-sm-4">
 		    <label for="">Tipo de Servicio</label>
-            <select name="" id="" class="form-control">
-					<option value="">Insumo</option>
-					<option value="">Servicio</option>
-					<option value="">Transporte</option>
-					<option value="">Asesoría</option>
-					<option value="">Arrendamiento</option>
-					<option value="">Otros</option>
+            <select class="form-control">
+					<option value="insumo">Insumo</option>
+					<option value="Servicio">Servicio</option>
+					<option value="Transporte">Transporte</option>
+					<option value="Asesoría">Asesoría</option>
+					<option value="Arrendamiento">Arrendamiento</option>
+					<option value="Otros">Otros</option>
 			</select>
 		</div>
 		<div class="col-sm-4">
@@ -61,7 +62,7 @@
 		</div>
 			</div>
 <div class="container">
-	<table class="table table-light table-striped" ng-controller="spendsControl">
+	<table class="table table-light table-striped">
 		<thead style="background: blue;color: #fff;" ng-mouseover="searchSpends();">
 			<th>Fecha</th>
 			<th>Folio</th>
@@ -83,4 +84,5 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
 </div>
