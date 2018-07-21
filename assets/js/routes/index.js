@@ -41,5 +41,11 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/accounts/add/index.html'
 	}).when('/usuarios', {
 		templateUrl: 'assets/templates/users/index.html'
+	}).when('/agregar-usuarios', {
+		templateUrl: 'assets/templates/users/add/index.html'
+	}).when('/informacion', {
+		templateUrl: 'assets/templates/information/index.html'
+	}).when('/generales', {
+		templateUrl: 'assets/templates/generals/index.html'
 	});
 });
