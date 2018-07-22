@@ -1,0 +1,97 @@
+<div class="container" style="text-align: center;">
+	<h1>Perfiles</h1>
+	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="addProfile">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Agregar Perfil</p>
+        <div class="col-sm-8">
+        	<input type="text" class="form-control">
+        	<br>
+        	<button class="btn btn-primary">Agregar</button>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" style="display: flex;flex-direction: row;">
+	<div class="col-sm-4">
+		<select class="form-control">
+			<option value="administrador">Administrador</option>
+			<option value="">Opción</option>
+			<option value="">Opción</option>
+		</select>
+	</div>
+	<div style="width: 50%;display: flex;justify-content: flex-end;margin-left: 7%;">
+		<button class="btn btn-primary" style="margin-right: 2%;" data-toggle="modal" href="#addProfile">Agregar</button>
+		<button class="btn btn-primary">Guardar</button>
+	</div>
+</div>
+<div class="container">
+	<div class="container" ng-controller="profileTableControl">
+		<header style="display: flex;flex-direction: row;">
+		<div style="margin: 2%;">
+			<span ng-click="setCapture();">Captura</span>
+		</div>
+		<div style="margin: 2%;">
+			<span ng-click="setReports();">Reportes</span>
+		</div>
+	</header>
+		<table class="table table-light table-striped profile-table">
+			<thead>
+				<th></th>
+				<th>Ejecutar</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Estado de Cuenta de Ingresos</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Estado de Cuenta de Egresos</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Estado de Cuenta Por</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Estado de Cuenta Por Proveedor</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Resumen de Facturación por TASF</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Resumen de Clientes/Proveedores</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Resumen de Servicios</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Resumen de Gastos</td>
+					<td><input type="checkbox"></td>
+				</tr>
+				<tr>
+					<td>Estado de Resultados(Utilidad/Pérdida)</td>
+					<td><input type="checkbox"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

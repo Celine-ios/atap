@@ -47,5 +47,7 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/information/index.html'
 	}).when('/generales', {
 		templateUrl: 'assets/templates/generals/index.html'
+	}).when('/perfiles', {
+		templateUrl: 'assets/templates/profiles/index.html'
 	});
 });
