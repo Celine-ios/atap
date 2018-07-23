@@ -49,5 +49,9 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/generals/index.html'
 	}).when('/perfiles', {
 		templateUrl: 'assets/templates/profiles/index.html'
+	}).when('/asignar-perfiles', {
+		templateUrl: 'assets/templates/profiles/assign/index.html'
+	}).when('/consultar-perfiles', {
+		templateUrl: 'assets/templates/profiles/query/index.html'
 	});
 });
