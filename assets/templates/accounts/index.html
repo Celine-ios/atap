@@ -1,3 +1,4 @@
+<div ng-controller="accountsControl">
 <div class="container" style="text-align: center;">
 	<h1>Cuentas</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -10,15 +11,15 @@
 <div class="row" style="display: flex;justify-content: center;margin: 4%;margin-left: 10%;">
 	<div class="col-sm-3">
 		<label for="">Nombre</label>
-		<input type="text" class="form-control">
+		<input type="text" class="form-control" name="name" ng-keyup="search();">
 	</div>
 	<div class="col-sm-3">
 		<label for="">Teléfono</label>
-		<input type="tel"  class="form-control">
+		<input type="tel" class="form-control" name="tel" ng-keyup="search();">
 	</div>
 	<div class="col-sm-3">
 		<label for="">Nombre Contacto</label>
-		<input type="text" class="form-control">
+		<input type="text" class="form-control" name="cont_name" ng-keyup="search();">
 	</div>
 	<div class="col-sm-2" style="display: flex;justify-content: center;align-items: flex-end;">
 		<button class="btn btn-success">Buscar</button>
@@ -42,30 +43,20 @@
 			<th>Correo cont.</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr ng-repeat="result in results">
+				<td>{{result.nombre}}</td>
+				<td>{{result.telefono}}</td>
+				<td>{{result.correo}}</td>
+				<td>{{result.fecha_ingreso}}</td>
+				<td>{{result.telefono_contacto}}</td>
+				<td>{{result.correo_contacto}}</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="container" style="display: flex;justify-content: center;">
+	<div style="display: flex;flex-direction: row;">
+		<button class="btn btn-primary" ng-click="show();">Mostrar</button>
+	</div>
+</div>
 </div>
