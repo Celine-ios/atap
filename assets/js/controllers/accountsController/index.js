@@ -25,4 +25,35 @@ app.controller('accountsControl', function($scope, $http){
 			});
 
 		};
+
+		$scope.sendAdd = () => {
+			var name = document.getElementsByName('name')[0].value;
+			var tel = document.getElementsByName('tel')[0].value;
+			var address = document.getElementsByName('address')[0].value;
+			var email = document.getElementsByName('email')[0].value;
+			var country = document.getElementsByName('country')[0].value;
+			var con_name = document.getElementsByName('con_name')[0].value;
+			var zip = document.getElementsByName('zip')[0].value;
+			var con_email = document.getElementsByName('con_email')[0].value;
+			var con_tel = document.getElementsByName('con_tel')[0].value;
+			var city = document.getElementsByName('city')[0].value;
+
+			$http.post('assets/php/forms/accounts/add/index.php', {
+				name: name,
+				tel: tel,
+				address: address,
+				email: email,
+				country: country,
+				con_name: con_name,
+				zip: zip,
+				con_email: con_email,
+				con_tel: con_tel,
+				city: city
+
+			}).then(response => {
+				alert("La Cuenta ha sido agregada exitosamente");
+			}, response => {
+				console.log(response.data);
+			});
+		};
 });
