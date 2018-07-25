@@ -1,3 +1,4 @@
+<div ng-controller="providersControl">
 <div class="container" style="text-align: center;">
 	<h1>Proveedores</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -10,18 +11,15 @@
 <div class="row" style="display: flex;justify-content: center;margin: 4%;margin-left: 10%;">
 	<div class="col-sm-3">
 		<label for="">Nombre</label>
-		<input type="text" class="form-control">
+		<input type="text" class="form-control" name="name" ng-keyup="search();">
 	</div>
 	<div class="col-sm-3">
 		<label for="">Teléfono</label>
-		<input type="tel"  class="form-control">
+		<input type="tel"  class="form-control" name="tel" ng-keyup="search();">
 	</div>
 	<div class="col-sm-3">
 		<label for="">Nombre Contacto</label>
-		<input type="text" class="form-control">
-	</div>
-	<div class="col-sm-2" style="display: flex;justify-content: center;align-items: flex-end;">
-		<button class="btn btn-success">Buscar</button>
+		<input type="text" class="form-control" name="con_name" ng-keyup="search();">
 	</div>
 	<div class="col-sm-1" style="display: flex;align-items: center;margin-top: 3.5%;">
 		<a href="#!agregar-proveedores"><i class="fas fa-plus" style="color: green;"></i></a>
@@ -42,30 +40,18 @@
 			<th>Correo</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr ng-repeat="proveedor in providers">
+				<td>{{proveedor.nombre}}</td>
+				<td>{{proveedor.telefono}}</td>
+				<td>{{proveedor.correo}}</td>
+				<td>{{proveedor.fecha_alta}}</td>
+				<td>{{proveedor.telefono_contacto}}</td>
+				<td>{{proveedor.correo_contacto}}</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="container" style="display: flex;justify-content: center;">
+	<button class="btn btn-primary" ng-click="show();">Mostrar</button>
+</div>
 </div>

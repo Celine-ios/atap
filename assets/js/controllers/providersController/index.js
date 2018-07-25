@@ -14,11 +14,49 @@ app.controller('providersControl', function($scope, $http) {
 		var notes = document.getElementsByName('notes')[0].value;
 		
 		$http.post('assets/php/forms/providers/add/index.php', {
-			
+			name: name,
+			tel: tel,
+			address: address,
+			email: email,
+			country: country, 
+			state: state,
+			con_email: con_email,
+			city: city,
+			service_type: service_type,
+			payway: payway,
+			credit_days: credit_days,
+			notes: notes
+
 		}).then((response) => {
+			alert('Proveedor Añadido Correctamente');
+		}, (response) => {
+			console.log(response.data);
+		});
+	};
+
+	$scope.show = () => {
+		$http.post('assets/php/searchProviders/index.php').then((response) => {
+			$scope.providers = response.data;
 			console.log(response.data);
 		}, (response) => {
 			console.log(response.data);
 		});
+	};
+
+	$scope.search = () => {
+		var name = document.getElementsByName('name')[0].value;
+		var tel = document.getElementsByName('tel')[0].value;
+		var contactName = document.getElementsByName('con_name')[0].value;				
+			
+			$http.post('assets/php/searchProvidersFilters/index.php', {
+				name: name,
+				tel: tel,
+				cName: contactName
+			}).then((response) => {
+				console.log(response.data);
+				$scope.providers = response.data;
+			}, (response) => {
+				console.log(response.data);
+			});
 	};
 });
