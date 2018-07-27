@@ -1,3 +1,4 @@
+<div ng-controller="profileTableControl">
 <div class="container" style="text-align: center;">
 	<h1>Perfiles</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -14,9 +15,9 @@
       <div class="modal-body">
         <p>Agregar Perfil</p>
         <div class="col-sm-8">
-        	<input type="text" class="form-control">
+        	<input type="text" class="form-control" id="addP">
         	<br>
-        	<button class="btn btn-primary">Agregar</button>
+        	<button class="btn btn-primary" ng-click="addProfile();">Agregar</button>
         </div>
 
       </div>
@@ -40,7 +41,7 @@
 	</div>
 </div>
 <div class="container">
-	<div class="container" ng-controller="profileTableControl">
+	<div class="container">
 		<header style="display: flex;flex-direction: row;">
 		<div style="margin: 2%;">
 			<span ng-click="setCapture();">Captura</span>
@@ -94,4 +95,5 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 </div>

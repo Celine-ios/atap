@@ -1,4 +1,4 @@
-app.controller('profileTableControl', function($scope){
+app.controller('profileTableControl', function($scope, $http){
 
 	$scope.setCapture = function() {
 		var ajax = new XMLHttpRequest();
@@ -24,5 +24,20 @@ app.controller('profileTableControl', function($scope){
 		};
 		ajax.open('get', 'assets/templates/profiles/tables/reports/index.html', true);
 		ajax.send();
+	};
+
+	$scope.addProfile = () => {
+		var profile = document.getElementById('addP').value;
+		$http.post('assets/php/profiles/add/index.php', {
+			profile: profile
+		}).then((response) => {
+			if (response.data == true) {
+				alert('Perfil agregado Correctamente');	
+			} else {
+				alert('Ha habido un Problema al Agregar el Perfil, por favor intente más tarde');	
+			}
+		}, (response) => {
+			console.log(response.data);
+		});
 	};
 });

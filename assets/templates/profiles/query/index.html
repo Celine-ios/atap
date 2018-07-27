@@ -1,3 +1,4 @@
+<div ng-controller="assignProfilesControl">
 <div class="container" style="text-align: center;">
 	<h1>Consultar Asignación de Perfiles</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -10,10 +11,10 @@
 <div class="container">
 	<div class="col-sm-3">
 	<label for="">Perfil</label>
-	<select class="form-control">
-		<option value="">Opción</option>
-		<option value="">Opción</option>
-		<option value="">Opción</option>
+	<select class="form-control" id="profileSel">
+		<option value="perfil1">Opción</option>
+		<option value="perfil2">Opción</option>
+		<option value="perfil3">Opción</option>
 	</select>
 	</div>
 </div>
@@ -28,27 +29,17 @@
 			<th>Fecha Ingreso</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Tal</td>
-				<td>asas</td>
-				<td>asas</td>
-				<td>asas</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr ng-repeat="assignament in assignaments">
+				<td>{{assignnament.id}}</td>
+				<td>{{assignnament.nombre}}</td>
+				<td>{{assignnament.compania}}</td>
+				<td>{{assignnament.puesto}}</td>
+				<td>{{assignnament.fecha_ingreso}}</td>		
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="container" style="display: flex;justify-content: center;">
+	<button class="btn btn-primary" type="button" ng-click="show();">Mostrar</button>
+</div>
 </div>
