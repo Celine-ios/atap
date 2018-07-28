@@ -53,5 +53,21 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/profiles/assign/index.html'
 	}).when('/consultar-perfiles', {
 		templateUrl: 'assets/templates/profiles/query/index.html'
+	}).when('/ingresos', {
+		templateUrl: 'assets/templates/inners/index.html'
+	}).when('/egresos', {
+		templateUrl: 'assets/templates/outers/index.html'
+	}).when('/ingresos-cuenta', {
+		templateUrl: 'assets/templates/inners/account/index.html'
+	}).when('/ingresos-cliente', {
+		templateUrl: 'assets/templates/inners/client/index.html'
+	}).when('/ingresos-todo', {
+		templateUrl: 'assets/templates/inners/all/index.html'
+	}).when('/egresos-proveedor', {
+		templateUrl: 'assets/templates/outers/provider/index.html'
+	}).when('/egresos-todo', {
+		templateUrl: 'assets/templates/outers/all/index.html'
+	}).when('/estado-cuenta', {
+		templateUrl: 'assets/templates/accountState/index.html'
 	});
 });
