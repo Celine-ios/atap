@@ -2,6 +2,7 @@ app.controller('accountsControl', function($scope, $http){
 		$scope.show = () => {
 				$http.post('assets/php/searchAccounts/index.php').then(function(response) {
 				var accounts = response.data;
+				console.log(accounts);
 				$scope.results = accounts;
 			}, function(response) {
 				alert("Ha ocurrido un error al cargar las Cuentas");

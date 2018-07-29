@@ -1,1 +1,52 @@
-<h1>Hold the pain</h1>
+<div ng-controller="generalsControl">
+<div class="container" style="text-align: center;">
+	<h1>Generales</h1>
+	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
+</div>
+<div class="container">
+	<form action="" name="form">
+		<div class="row" style="display: flex;justify-content: center;">
+			<div class="col-sm-4">
+				<label for="">$ Carga de Viaje</label>
+				<input type="number" name="carga_viaje" class="form-control" ng-model="carga_viaje" required autofocus>
+				<span class="ng-formie" ng-show="form.carga_viaje.$touched && form.carga_viaje.$invalid">Carga Requerida</span>
+			</div>
+			<div class="col-sm-4">
+				<label for="">% Factoraje</label>
+				<input type="number" name="factoraje" class="form-control" ng-model="factoraje" required>
+				<span class="ng-formie" ng-show="form.factoraje.$touched && form.factoraje.$invalid">Factoraje Requerido</span>
+			</div>
+		</div>
+		<div class="row" style="display: flex;justify-content: center;">
+			<div class="col-sm-4">
+				<label for="">% Impuestos</label>
+				<input type="number" name="impuestos" class="form-control" ng-model="impuestos" required>
+				<span class="ng-formie" ng-show="form.impuestos.$touched && form.impuestos.$invalid">Impuestos Requeridos</span>
+			</div>
+			<div class="col-sm-4">
+				<label for="">% Seguro</label>
+				<input type="number" name="seguro" class="form-control" ng-model="seguro" required>
+				<span class="ng-formie" ng-show="form.seguro.$touched && form.seguro.$invalid">Seguro Requerido</span>
+			</div>
+		</div>
+		<div class="row" style="display: flex;justify-content: center;">
+			<div class="col-sm-4">
+				<label for="">% Pago con Tarjeta</label>
+				<input type="number" name="pago_tarjeta" class="form-control" ng-model="pago_tarjeta" required>
+				<span class="ng-formie" ng-show="form.pago_tarjeta.$touched && form.pago_tarjeta.$invalid">Pago Requerido</span>
+			</div>
+			<div class="col-sm-4">
+				<label for="">% Comisión por Traspaso</label>
+				<input type="number" name="comision_traspaso" class="form-control" required ng-model="comision_traspaso">
+				<span class="ng-formie" ng-show="form.comision_traspaso.$touched && form.comision_traspaso.$invalid">Comisión Requerida</span>
+			</div>
+		</div>
+		<br>
+		<div class="row" style="display: flex;justify-content: center;">
+			<div class="col-sm-4" style="display: flex;justify-content: center;">
+				<button class="btn btn-primary" ng-click="send();" type="button">Guardar</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>

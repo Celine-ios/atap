@@ -7,7 +7,7 @@
 	if ($q) {
 		$accounts = array();
 		while($row = mysqli_fetch_array($q, MYSQLI_BOTH)) {
-			$account = array('nombre' => $row['nombre'], 'telefono' => $row['telefono'], 'correo' => $row['correo'], 'fecha_ingreso' => $ow['fecha_ingreso'], 'correo_contacto' => $row['correo_contacto'], 'telefono_contacto' => $row['telefono_contacto']);
+			$account = array('nombre' => $row['nombre'], 'telefono' => $row['telefono'], 'correo' => $row['correo'], 'fecha_ingreso' => $row['fecha_ingreso'], 'correo_contacto' => $row['correo_contacto'], 'telefono_contacto' => $row['telefono_contacto']);
 			array_push($accounts, $account);
 		}
 		$json_accounts = json_encode($accounts);
