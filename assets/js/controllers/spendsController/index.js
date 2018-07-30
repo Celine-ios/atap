@@ -25,5 +25,5 @@ app.controller('spendsControl', function($scope, $http) {
 			console.log(response);
 		});
 	};
-
+	
 });

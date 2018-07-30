@@ -47,32 +47,19 @@
 			<th>{{table}}</th>
 			<th>Total de la Orden</th>
 			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<tr ng-repeat="result in results">
+					<td>{{result.id}}</td>
+					<td>{{result.orden_cuenta}}</td>
+					<td>{{result.nombre_cliente}}</td>
+					<td>{{result.total_servicios}}</td>
+					<td>{{result.comision_pago_tarjeta ? result.comision_pago_tarjeta : result.descuento}}</td>
+					<td>{{result.total_orden}}</td>
 				</tr>
 			</tbody>
 		</thead>
 	</table>
+</div>
+<div class="container" style="display: flex;justify-content: center;">
+	<button class="btn btn-primary" type="button" ng-click="show();">Mostrar</button>
 </div>
 </div>
