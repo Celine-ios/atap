@@ -1,3 +1,4 @@
+<div ng-controller="workOrdersControl">
 <div class="container" style="text-align: center;">
 	<h1>Orden de Trabajo</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -45,31 +46,16 @@
 			<th>Total de Servicios</th>
 			<th>Total de la Orden</th>
 			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+				<tr ng-repeat="order in orders">
+					<td>{{order.id}}</td>
+					<td>{{order.nombre_cuenta}}</td>
+					<td>{{order.nombre_cliente}}</td>
+					<td>{{order.fecha_trabajo}}</td>
+					<td>{{order.total_servicios}}</td>
+					<td>{{order.total_orden}}</td>
 				</tr>
 			</tbody>
 		</thead>
 	</table>
+</div>
 </div>

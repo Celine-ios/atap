@@ -1,3 +1,4 @@
+<div ng-controller="quotationsControl">
 <div class="container" style="text-align: center;">
 	<h1>Cotizaciones</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -44,30 +45,18 @@
 			<th>Comisión por pago con Tarjeta</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr ng-repeat="quotation in quotations">
+				<td>{{quotation.id}}</td>
+				<td>{{quotation.nombre_cuenta}}</td>
+				<td>{{quotation.nombre_cliente}}</td>
+				<td>{{quotation.total_servicios}}</td>
+				<td>{{quotation.comision_pago_tarjeta}}</td>
+				<td>{{quotation.total_orden}}</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="container" style="display: flex;justify-content: center;">
+	<button class="btn btn-primary" ng-click="show();">Mostrar</button>
+</div>
 </div>
