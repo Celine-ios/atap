@@ -5,7 +5,8 @@
 	$database = new Database();
 	$conn = $database->con();
 	$sel = $database->sel($conn);
-	$q = $database->q($conn, 'INSERT INTO usuarios(nombre, telefono, correo, fecha_ingreso, usuario, contrasena) VALUES("'.$user->name.'","'.$spend->tel.'","'.$user->email.'","'.$user->inDay.'","'.$user->user.'","'.$spend->password.'");');
+	$date = date('Y-m-d');
+	$q = $database->q($conn, 'INSERT INTO usuarios(nombre, telefono, correo, fecha_ingreso, usuario, contrasena) VALUES("'.$user->name.'","'.$user->tel.'","'.$user->email.'","'.date('Y-m-d').'","'.$user->user.'","'.$user->password.'");');
 	if ($q) {
 		echo "true";
 		return;
