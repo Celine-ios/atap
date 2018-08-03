@@ -32,6 +32,17 @@ app.controller('usersControl', function($scope, $http){
 		};
 
 	    $scope.search = () => {
-
+	    	var name = document.getElementsByName('name')[0].value;
+	    	if (name == '') {
+				$scope.show();	    		
+	    	}
+	    	$http.post('assets/php/searchUsersFilter/index.php', {
+	    		name: name
+	    	}).then( response => {
+	    			console.log(response.data);
+	    			$scope.users = response.data;
+	    	}, response => {
+	    			console.log(response.data);
+	    	});
 	    };
 });

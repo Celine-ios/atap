@@ -47,7 +47,7 @@
 			<th>Importe</th>
 		</thead>
 		<tbody>
-			<tr ng-repeat="spend in spends">
+			<tr ng-repeat="spend in spends" ng-click="edit(spend.id);">
 				<td>{{spend.fecha_gasto}}</td>
 				<td>{{spend.folio}}</td>
 				<td>{{spend.proveedor}}</td>

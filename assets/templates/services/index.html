@@ -1,3 +1,4 @@
+<div ng-controller="servicesControl">
 <div class="container" style="text-align: center;">
 	<h1>Servicios</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -44,22 +45,15 @@
 			<th>Precio</th>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr ng-repeat="service in services">
+				<td>{{services.id}}</td>
+				<td>{{services.tipo}}</td>
+				<td>{{services.nombre}}</td>
+				<td>{{services.descripcion}}</td>
+				<td>{{services.costo}}</td>
+				<td>{{services.precio}}</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
 </div>

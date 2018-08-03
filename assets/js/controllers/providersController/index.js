@@ -46,7 +46,10 @@ app.controller('providersControl', function($scope, $http) {
 	$scope.search = () => {
 		var name = document.getElementsByName('name')[0].value;
 		var tel = document.getElementsByName('tel')[0].value;
-		var contactName = document.getElementsByName('con_name')[0].value;				
+		var contactName = document.getElementsByName('con_name')[0].value;
+		if (name == '' && tel == '' && contactName == '') {
+			$scope.show();
+		}
 			
 			$http.post('assets/php/searchProvidersFilters/index.php', {
 				name: name,
