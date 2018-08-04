@@ -44,8 +44,6 @@ app.controller('formControl', function($scope, $http){
 			});
 			break;
 
-			case 'spends-edit':
-
 			}
 			
 		};	

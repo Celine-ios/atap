@@ -30,30 +30,40 @@ app.controller('spendsControl', function($scope, $http) {
 		});
 	};
 	$scope.edit = id => {
-		var row = document.getElementsByTagName('tr')[id].innerHTML;
-		var limit = id * 7;
-		if (id == 1) {
-			var columns = [];
+		var row = document.getElementsByTagName('tr')[id].innerHTML; // Selected Row from Table
+		var limit = id * 7; // Limited Key for columns array
+		var columns = []; // Columns Array
+		// begin variable: Indicates key begin
+		// Adding to columns array every column from begin to limit
 		for (var begin = (limit - 7); begin < limit; ++begin) {
 			    var column = document.getElementsByTagName('td')[begin].innerHTML;
 			    columns.push(column);
 		}
-		}
-		else {
-
-			var limit = id * 7;
-			var columns = [];
-			for (var begin = (limit - 7); begin < limit; ++begin) {
-				var column = document.getElementsByTagName('td')[begin].innerHTML;
-			    columns.push(column);
-
-		}	
-		}
-		
+		// Setting up a Item Session with every selected column
 		for (var i = 0; i < columns.length; ++i) {
-			console.log(columns[i]);
+		    sessionStorage.setItem('column-'+i, columns[i]);
 		}
+		location.href="#!editar-gastos";
+	};
 
+	$scope.processEdit = () => {
+
+		$http.post('assets/php/editServices/index.php', {
+			serviceType: serviceType,
+			provider: provider,
+			spendDate: spendDate,
+			description: description,
+			import: importe,
+			tax: tax,
+			spend: spend,
+			folio: folio,
+			notes: notes,
+			comp: comp
+		}).then((response) => {
+			console.log(response.data);
+		}, (response) => {
+
+		});
 	};
 	
 });
