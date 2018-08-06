@@ -47,6 +47,25 @@ app.controller('spendsControl', function($scope, $http) {
 	};
 
 	$scope.processEdit = () => {
+		var serviceType = document.getElementsByName('serviceType')[0].value;
+		var provider = document.getElementsByName('provider')[0].value;
+		var spendDate = document.getElementsByName('spendDate')[0].value;
+		var description = document.getElementsByName('description')[0].value;
+		var importe = document.getElementsByName('import')[0].value;
+		var tax = document.getElementsByName('tax')[0].value;
+		var spend = document.getElementsByName('spend')[0].value;
+		var folio = document.getElementsByName('folio')[0].value;
+		var notes = document.getElementsByName('notes')[0];
+
+		if (document.getElementsByName('check')[0].files[0]) {
+				var file = document.getElementsByName('check')[0].files[0];    
+				var filename = file.name;
+				var checkf = filename.indexOf('pdf');
+				if (checkf == -1) {
+				  alert("El formato debe ser PDF");
+				  return;  
+				} 
+			}
 
 		$http.post('assets/php/editServices/index.php', {
 			serviceType: serviceType,
@@ -58,12 +77,35 @@ app.controller('spendsControl', function($scope, $http) {
 			spend: spend,
 			folio: folio,
 			notes: notes,
-			comp: comp
+			comp: filename
 		}).then((response) => {
 			console.log(response.data);
 		}, (response) => {
-
+			console.log(response.data);
 		});
 	};
+
+	$scope.setValues = () => {
+		var fecha, folio, proveedor, servicio, gasto, impuesto, importe;
+		fecha = sessionStorage.getItem('column-0');
+		folio = sessionStorage.getItem('column-1');
+		proveedor = sessionStorage.getItem('column-2');
+		servicio = sessionStorage.getItem('column-3');
+		gasto = sessionStorage.getItem('column-4');
+		impuesto = sessionStorage.getItem('column-5');
+		importe = sessionStorage.getItem('column-6');
+
+		document.getElementsByName('serviceType')[0].value = servicio;
+		document.getElementsByName('provider')[0].value = proveedor;
+		document.getElementsByName('spendDate')[0].value = fecha;
+		document.getElementsByName('import')[0].value = importe;
+		document.getElementsByName('tax')[0].value = impuesto;
+		document.getElementsByName('spend')[0].value = gasto;
+		document.getElementsByName('folio')[0].value = folio;
+		
+	};
+	if(location.hash == '#!/editar-gastos') {
+    	$scope.setValues();
+	}
 	
 });

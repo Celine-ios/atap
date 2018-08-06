@@ -6,9 +6,11 @@
 	$q = $database->q($con, 'SELECT * FROM cuentas');
 	if ($q) {
 		$accounts = array();
+		$i = 1;
 		while($row = mysqli_fetch_array($q, MYSQLI_BOTH)) {
-			$account = array('nombre' => $row['nombre'], 'telefono' => $row['telefono'], 'correo' => $row['correo'], 'fecha_ingreso' => $row['fecha_ingreso'], 'correo_contacto' => $row['correo_contacto'], 'telefono_contacto' => $row['telefono_contacto']);
+			$account = array('id' => $i, 'nombre' => $row['nombre'], 'telefono' => $row['telefono'], 'correo' => $row['correo'], 'fecha_ingreso' => $row['fecha_ingreso'], 'correo_contacto' => $row['correo_contacto'], 'telefono_contacto' => $row['telefono_contacto']);
 			array_push($accounts, $account);
+			$i++;
 		}
 		$json_accounts = json_encode($accounts);
 		echo $json_accounts;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2018 a las 22:34:48
+-- Tiempo de generación: 06-08-2018 a las 17:04:06
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -25,6 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `asignaciones`
+--
+
+CREATE TABLE `asignaciones` (
+  `id_orden` int(200) NOT NULL,
+  `fecha_trabajo` date DEFAULT NULL,
+  `nombre` text,
+  `cliente` text,
+  `telefono` text,
+  `nombre_contacto` text,
+  `telefono_contacto` text,
+  `estado` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `asignaciones_perfiles`
 --
 
@@ -35,6 +52,21 @@ CREATE TABLE `asignaciones_perfiles` (
   `puesto` text,
   `fecha_ingreso` date DEFAULT NULL,
   `asignado_a` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cotizaciones`
+--
+
+CREATE TABLE `cotizaciones` (
+  `id` int(200) NOT NULL,
+  `nombre_cuenta` text,
+  `nombre_cliente` text,
+  `total_servicios` int(200) DEFAULT NULL,
+  `total_orden` int(200) DEFAULT NULL,
+  `comision_pago_tarjeta` int(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -57,7 +89,7 @@ CREATE TABLE `cuentas` (
 --
 
 INSERT INTO `cuentas` (`nombre`, `telefono`, `correo`, `fecha_ingreso`, `telefono_contacto`, `correo_contacto`) VALUES
-('Bcr', 2147483647, 'thejyjco@gmail.com', '2018-07-24', 2147483647, 'thejyjco@gmail.com');
+('ws', 2147483647, 'thejyjco@gmail.com', '2018-07-24', 2147483647, 'thejyjco@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -126,6 +158,32 @@ INSERT INTO `gastos` (`tipo_servicio`, `proveedor`, `fecha_gasto`, `descripcion`
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `generales`
+--
+
+CREATE TABLE `generales` (
+  `id` int(200) NOT NULL,
+  `carga_viaje` int(200) DEFAULT NULL,
+  `factoraje` int(200) DEFAULT NULL,
+  `impuestos` int(200) DEFAULT NULL,
+  `seguro` int(200) DEFAULT NULL,
+  `pago_tarjeta` int(200) DEFAULT NULL,
+  `comision_traspaso` int(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `generales`
+--
+
+INSERT INTO `generales` (`id`, `carga_viaje`, `factoraje`, `impuestos`, `seguro`, `pago_tarjeta`, `comision_traspaso`) VALUES
+(1, 6, 4, 23, 23, 23, 23),
+(2, 12, 12, 12, 12, 12, 12),
+(3, 323, 232, 2323, 2323, 2323, 2323),
+(4, 12, 12, 12, 12, 12, 12);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `informaciones`
 --
 
@@ -139,6 +197,21 @@ CREATE TABLE `informaciones` (
   `ciudad` text,
   `telefono` int(20) DEFAULT NULL,
   `correo` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ordenes_trabajo`
+--
+
+CREATE TABLE `ordenes_trabajo` (
+  `id` int(200) NOT NULL,
+  `nombre_cuenta` text,
+  `nombre_cliente` text,
+  `fecha_trabajo` date DEFAULT NULL,
+  `total_servicios` int(200) DEFAULT NULL,
+  `total_orden` int(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -182,16 +255,70 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id`, `nombre`, `telefono`, `correo`, `fecha_alta`, `telefono_contacto`, `correo_contacto`) VALUES
-(2, 'asas', 5656, 'asas@sa.com', '2018-07-25', 5656, 'r@g.com');
+(2, 'qlq', 5656, 'asas@sa.com', '2018-07-25', 5656, 'r@g.com'),
+(3, 'Juan', 2147483647, 'thejyjco@gmail.com', '2018-07-29', 2147483647, 'guzmanjuan3011@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `servicios`
+--
+
+CREATE TABLE `servicios` (
+  `id` int(200) NOT NULL,
+  `tipo` text,
+  `nombre` text,
+  `descripcion` text,
+  `costo` int(200) DEFAULT NULL,
+  `precio` int(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(200) NOT NULL,
+  `nombre` text,
+  `telefono` text,
+  `correo` text,
+  `fecha_ingreso` date DEFAULT NULL,
+  `usuario` text,
+  `contrasena` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `telefono`, `correo`, `fecha_ingreso`, `usuario`, `contrasena`) VALUES
+(1, '', '', '', '0118-07-02', '', ''),
+(2, '', '', '', '0118-07-02', '', ''),
+(3, 'Juan', '', 'thejyjco@gmail.com', '2018-08-02', 'wh0am123', ''),
+(4, 'Juan', '+584167952491', 'thejyjco@gmail.com', '2018-08-02', 'wh0am123', 'watichurros12');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `asignaciones`
+--
+ALTER TABLE `asignaciones`
+  ADD PRIMARY KEY (`id_orden`);
+
+--
 -- Indices de la tabla `asignaciones_perfiles`
 --
 ALTER TABLE `asignaciones_perfiles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `cotizaciones`
+--
+ALTER TABLE `cotizaciones`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -207,9 +334,21 @@ ALTER TABLE `facturas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `generales`
+--
+ALTER TABLE `generales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `informaciones`
 --
 ALTER TABLE `informaciones`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ordenes_trabajo`
+--
+ALTER TABLE `ordenes_trabajo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -225,6 +364,18 @@ ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -233,6 +384,12 @@ ALTER TABLE `proveedores`
 --
 ALTER TABLE `asignaciones_perfiles`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cotizaciones`
+--
+ALTER TABLE `cotizaciones`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `factoraje`
@@ -247,9 +404,21 @@ ALTER TABLE `facturas`
   MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `generales`
+--
+ALTER TABLE `generales`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `informaciones`
 --
 ALTER TABLE `informaciones`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ordenes_trabajo`
+--
+ALTER TABLE `ordenes_trabajo`
   MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
@@ -262,7 +431,19 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

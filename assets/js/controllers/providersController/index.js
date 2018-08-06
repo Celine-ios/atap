@@ -62,4 +62,45 @@ app.controller('providersControl', function($scope, $http) {
 				console.log(response.data);
 			});
 	};
+
+	$scope.edit = id => {
+		var row = document.getElementsByTagName('tr')[id].innerHTML; // Selected Row from Table
+		var limit = id * 6; // Limited Key for columns array
+		var columns = []; // Columns Array
+		// begin variable: Indicates key begin
+		// Adding to columns array every column from begin to limit
+		for (var begin = (limit - 6); begin < limit; ++begin) {
+			    var column = document.getElementsByTagName('td')[begin].innerHTML;
+			    columns.push(column);
+		}
+		// Setting up a Item Session with every selected column
+		for (var i = 0; i < columns.length; ++i) {
+		    //sessionStorage.setItem('column-'+i, columns[i]);
+		    document.getElementsByName('column-'+i)[0].value = columns[i];
+		}
+
+	};
+
+	$scope.processEdit = () => {
+		var name = document.getElementsByName('column-0')[0].value;
+		var tel = document.getElementsByName('column-1')[0].value;
+		var email = document.getElementsByName('column-2')[0].value;
+		var highDate = document.getElementsByName('column-3')[0].value;
+		var tel_con = document.getElementsByName('column-4')[0].value;
+		var email_con = document.getElementsByName('column-5')[0].value;
+
+		$http.post('assets/php/editProviders/index.php', {
+			name: name,
+			tel: tel,
+			email: email,
+			highDate: highDate,
+			tel_con: tel_con,
+			email_con: email_con
+		}).then(response => {
+			alert("Proveedor editado Correctamente");
+			console.log(response.data);
+		}, response => {
+			console.log(response.data);
+		});
+	};
 });
