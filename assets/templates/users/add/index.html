@@ -4,25 +4,29 @@
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
 </div>
 <div class="container">
-	<form action="">
+	<form action="" name="form">
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Nombre</label>
-				<input type="text" class="form-control" name="nombre">
+				<input type="text" class="form-control" name="nombre" required ng-model="nombre">
+				<span class="ng-formie" ng-show="form.nombre.$invalid && form.nombre.$touched">Nombre Requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Puesto</label>
-				<input type="text" class="form-control" name="puesto">
+				<input type="text" class="form-control" name="puesto" required ng-model="name">
+				<span class="ng-formie" ng-show="form.puesto.$invalid && form.puesto.$touched">Puesto Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Dirección</label>
-				<input type="text" class="form-control" name="direccion">
+				<input type="text" class="form-control" name="direccion" required ng-model="direccion">
+				<span class="ng-formie" ng-show="form.direccion.$invalid && form.direccion.$touched">Dirección Requerida</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Teléfono</label>
-				<input type="tel" class="form-control" name="telefono">
+				<input type="tel" class="form-control" name="telefono" required ng-model="telefono">
+				<span class="ng-formie" ng-show="form.telefono.$invalid && form.telefono.$touched">Teléfono Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
@@ -267,37 +271,44 @@
 			</div>
 			<div class="col-sm-4">
 				<label for="">Celular</label>
-				<input type="tel" class="form-control" name="celular">
+				<input type="tel" class="form-control" name="celular" required ng-model="celular">
+				<span class="ng-formie" ng-show="form.celular.$invalid && form.celular.$touched">Celular Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Código Postal</label>
-				<input type="number" class="form-control" name="zip">
+				<input type="number" class="form-control" name="zip" required ng-model="zip">
+				<span class="ng-formie" ng-show="form.zip.$invalid && form.zip.$touched">Código Requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Correo Electrónico</label>
-				<input type="email" class="form-control" name="email">
+				<input type="email" class="form-control" name="email" required ng-model="email">
+				<span class="ng-formie" ng-show="form.email.$invalid && form.email.$touched">Email Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Estado</label>
-				<input type="text" name="estado" class="form-control">
+				<input type="text" name="estado" class="form-control" required ng-model="estado">
+				<span class="ng-formie" ng-show="form.estado.$invalid && form.estado.$touched">Estado Requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Usuario</label>
-				<input type="text" name="usuario" class="form-control">
+				<input type="text" name="usuario" class="form-control" required ng-model="usuario">
+				<span class="ng-formie" ng-show="form.usuario.$invalid && form.usuario.$touched">Usuario Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Ciudad</label>
-				<input type="text" name="ciudad" class="form-control">
+				<input type="text" name="ciudad" class="form-control" required ng-model="ciudad">
+				<span class="ng-formie" ng-show="form.ciudad.$invalid && form.ciudad.$touched">Ciudad Requerida</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Contraseña</label>
-				<input type="password" class="form-control" name="contrasena">
+				<input type="password" class="form-control" name="contrasena" required ng-model="contrasena">
+				<span class="ng-formie" ng-show="form.contrasena.$invalid && form.contrasena.$touched">Contraseña Requerida</span>
 			</div>
 		</div>
 		<br>
