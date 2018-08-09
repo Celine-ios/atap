@@ -1,5 +1,5 @@
 app.controller('servicesControl', function($scope, $http){
-		$scop.show = () => {
+		$scope.show = () => {
 				$http.post('assets/php/searchServices/index.php').then(function(response) {
 				var services = response.data;
 				console.log(services);

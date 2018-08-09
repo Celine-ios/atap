@@ -1,3 +1,4 @@
+<div ng-controller="servicesControl">
 <div class="container" style="text-align: center;">
 	<h1>Revisión</h1>
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
@@ -18,35 +19,15 @@
 			<th>Total</th>
 		</thead>
 		<tbody>
-			<tr>
+			<tr ng-repeat="servicio in servicios">
 				<td><i class="fas fa-pencil-alt"></i><i class="fas fa-trash-alt"></i></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>{{servicio.numero}}</td>
+				<td>{{servicio.tipo}}</td>
+				<td>{{servicio.servicio}}</td>
+				<td>{{servicio.descripcion}}</td>
+				<td>{{servicio.cantidad}}</td>
+				<td>{{servicio.precio}}</td>
+				<td>{{servicio.total}}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -59,7 +40,8 @@
 <br>
 <div class="container" style="display: flex;justify-content: center;">
 	<div style="display: flex;flex-direction: row;justify-content: space-around;width: 40%;">
-		<button class="btn btn-success">Generar</button>
+		<button class="btn btn-success" ng-click="show();">Generar</button>
 		<button class="btn btn-danger">Cancelar</button>
 	</div>
+</div>
 </div>

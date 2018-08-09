@@ -8,4 +8,5 @@ app.controller('assignationsControl', function($scope, $http){
 				alert("Ha ocurrido un error al mostrar las Asignaciones");
 			});
 		};
+		
 });
