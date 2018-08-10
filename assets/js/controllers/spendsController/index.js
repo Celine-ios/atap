@@ -55,7 +55,7 @@ app.controller('spendsControl', function($scope, $http) {
 		var tax = document.getElementsByName('tax')[0].value;
 		var spend = document.getElementsByName('spend')[0].value;
 		var folio = document.getElementsByName('folio')[0].value;
-		var notes = document.getElementsByName('notes')[0];
+		var notes = document.getElementsByName('notes')[0].value;
 
 		if (document.getElementsByName('check')[0].files[0]) {
 				var file = document.getElementsByName('check')[0].files[0];    
@@ -65,9 +65,11 @@ app.controller('spendsControl', function($scope, $http) {
 				  alert("El formato debe ser PDF");
 				  return;  
 				} 
+			} else {
+				var filename = 'NO';
 			}
 
-		$http.post('assets/php/editServices/index.php', {
+		$http.post('assets/php/editSpends/index.php', {
 			serviceType: serviceType,
 			provider: provider,
 			spendDate: spendDate,
@@ -79,7 +81,10 @@ app.controller('spendsControl', function($scope, $http) {
 			notes: notes,
 			comp: filename
 		}).then((response) => {
-			console.log(response.data);
+			if(response.data == 'true') {
+				alert("Gasto editado Correctamente");
+			}
+
 		}, (response) => {
 			console.log(response.data);
 		});
@@ -107,5 +112,14 @@ app.controller('spendsControl', function($scope, $http) {
 	if(location.hash == '#!/editar-gastos') {
     	$scope.setValues();
 	}
+	$scope.checkLogin = () => {
+			if (!sessionStorage.getItem('user') || !sessionStorage.getItem('pw')) {
+				document.getElementById('menu').style.display = 'none';
+				location.href = "#!error";
+			} else {
+				return;
+			}
+		};
+		$scope.checkLogin();
 	
 });

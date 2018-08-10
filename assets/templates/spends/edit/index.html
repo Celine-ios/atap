@@ -4,7 +4,7 @@
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
 </div>
 <div class="container" style="display: flex;justify-content: center;width: 100%;">
-	<form action="" style="width: 100%;">
+	<form action="" style="width: 100%;" name="form">
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Tipo de Servicio</label>
@@ -30,49 +30,57 @@
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Fecha del Gasto</label>
-				<input type="date" class="form-control" name="spendDate">
+				<input type="date" class="form-control" name="spendDate" required>
+				<span ng-show="form.spendDate.$invalid && form.spendDate.$touched">Fecha Requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Descripción</label>
-				<input type="text" name="description" class="form-control">
+				<input type="text" name="description" class="form-control" required>
+				<span ng-show="form.description.$invalid && form.description.$touched">Descripción Requerida</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Importe</label>
-				<input type="text" name="import" class="form-control">
+				<input type="text" name="import" class="form-control" required>
+				<span ng-show="form.import.$invalid && form.import.$touched">Importe Requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Impuesto</label>
-				<input type="text" name="tax" class="form-control">
+				<input type="text" name="tax" class="form-control" required>
+				<span ng-show="form.tax.$invalid && form.tax.$touched">Impuesto Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-4">
 				<label for="">Gasto</label>
-				<input type="text" name="spend" class="form-control">
+				<input type="text" name="spend" class="form-control" required>
+				<span ng-show="form.spend.$invalid && form.spend.$touched">Gasto Requerido</span>
 			</div>
 			<div class="col-sm-4">
 				<label for="">Folio</label>
-				<input type="text" name="folio" class="form-control">
+				<input type="text" name="folio" class="form-control" required>
+				<span ng-show="form.folio.$invalid && form.folio.$touched">Folio Requerido</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-8">
 				<label for="">Notas</label>
-				<textarea name="notes" cols="30" rows="10" class="form-control"></textarea>
+				<textarea name="notes" cols="30" rows="10" class="form-control" required></textarea>
+				<span ng-show="form.notes.$invalid && form.notes.$touched">Notas Requeridas</span>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-8">
 				<label for="">Comprobante</label>
-				<input type="file" name="check" class="form-control">
+				<input type="file" name="check" class="form-control" required>
+				<span ng-show="form.check.$invalid && form.check.$touched">Comprobante Requerido</span>
 			</div>
 		</div>
 		<br>
 		<div class="row" style="display: flex;justify-content: center;">
 			<div class="col-sm-8" style="display: flex;justify-content: center;" ng-controller="formControl">
-				<button class="btn btn-primary btn-lg" ng-click="send($event, 'spends-edit');">Editar</button>
+				<button class="btn btn-primary btn-lg" type="button" ng-click="processEdit();">Editar</button>
 			</div>
 		</div>
 	</form>

@@ -1,6 +1,10 @@
 app.config(function($routeProvider) {
 	$routeProvider.when('/', {
+		templateUrl: 'assets/templates/login/index.html'
+	}).when('/home', {
 		templateUrl: 'assets/templates/home/index.html'
+	}).when('/error', {
+		templateUrl: 'assets/templates/error/index.html'
 	}).when('/ordenes', {
 		templateUrl: 'assets/templates/orders/index.html'
 	}).when('/reporte_movimientos', {
