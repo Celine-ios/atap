@@ -73,5 +73,9 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/outers/all/index.html'
 	}).when('/estado-cuenta', {
 		templateUrl: 'assets/templates/accountState/index.html'
+	}).when('/agregar-factoraje', {
+		templateUrl: 'assets/templates/factorage/index.html'
+	}).when('/agregar-factura', {
+		templateUrl: 'assets/templates/billing/index.html'
 	});
 });

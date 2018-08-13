@@ -90,7 +90,7 @@ app.controller('spendsControl', function($scope, $http) {
 		});
 	};
 
-	$scope.setValues = () => {
+		$scope.setValues = () => {
 		var fecha, folio, proveedor, servicio, gasto, impuesto, importe;
 		fecha = sessionStorage.getItem('column-0');
 		folio = sessionStorage.getItem('column-1');
