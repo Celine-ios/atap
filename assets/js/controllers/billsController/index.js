@@ -4,10 +4,12 @@ app.controller('billsControl', function($scope, $http) {
 	$scope.search = 'searchBilling();';
 	// Tables
 	$scope.table = 'Comisión por Pago con Tarjeta';
+	
 	$scope.changeToBills = function() {
         $scope.table = 'Comisión por Pago con Tarjeta';
         $scope.signed = '#editBilling';
         $scope.search = 'searchBilling();';
+        $scope.results = '';
 	};
 	$scope.changeToBilled = function() {
         $scope.table = "Descuento por Factoraje";
@@ -130,16 +132,17 @@ app.controller('billsControl', function($scope, $http) {
 		});
 	};
 
-	$scope.searchBilling = () => {
-		var account = document.getElementsByName('account')[0].value;
-		var name = document.getElementsByName('name')[0].value;
-		var startDate = document.getElementsByName('startDate')[0].value;
-		var endDate = document.getElementsByName('endDate')[0].value;
+	$scope.search = () => {
+			var account = document.getElementsByName('account')[0].value;
+			var name = document.getElementsByName('name')[0].value;
+			var startDate = document.getElementsByName('startDate')[0].value;
+			var endDate = document.getElementsByName('endDate')[0].value;
+
 		if (account == '' || name == '' || startDate == '' || endDate == '') {
 			alert('Complete todos los campos de Búsqueda');
 			return;
-		}
-			$http.post('assets/php/searchBilling/index.php', {
+		} 
+			$http.post('assets/php/searchBillingFilters/index.php', {
 				account: account,
 				name: name,
 				startDate: startDate,

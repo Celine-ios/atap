@@ -77,26 +77,26 @@
 	<div class="row">
 		<div class="col-sm-2">
 			<label for="">Cuenta</label>
-			<select name="" id="" class="form-control">
-				<option value="">Opción</option>
-				<option value="">Opción</option>
-				<option value="">Opción</option>
-				<option value="">Opción</option>
+			<select name="account" id="" class="form-control">
+				<option value="cuenta1">Opción</option>
+				<option value="cuenta2">Opción</option>
+				<option value="cuenta3">Opción</option>
+				<option value="cuenta4">Opción</option>
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label for="">Nombre Cliente</label>
-			<input type="text" class="form-control">
+			<input type="text" class="form-control" name="name">
 		</div>
 		<div class="col-sm-4">
 			<label for="">Período</label>
 			<div style="display: flex;flex-direction: row;">
-			<input type="date" name="" id="" class="form-control" style="margin-right: 2%;">
-			<input type="date" name="" id="" class="form-control">
+			<input type="date" name="startDate" class="form-control" style="margin-right: 2%;">
+			<input type="date" name="endDate" class="form-control">
 			</div>
 		</div>
     <div class="col-sm-3" style="display: flex;align-items: flex-end;">
-        <button class="btn btn-success" ng-click="{{search}}">Buscar</button>
+        <button class="btn btn-success" ng-click="search();">Buscar</button>
       </div>
 	</div>
 </div>

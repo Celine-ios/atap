@@ -4,22 +4,15 @@
 	$con = $database->con();
 	$sel = $database->sel($con);
 	$json = file_get_contents('php://input');
-	$account = json_decode($json);
-	if ($account->tel == '') {
-	$q = 'select * from cuentas where nombre="'.$account->name.'";';
-	}
-	if($account->name == '') {
-	$q = 'select * from cuentas where telefono='.$account->tel;
-	}
-	if($account->name != '' && $account->tel != '') {
-	$q = 'select * from cuentas where telefono='.$account->tel.' AND nombre="'.$account->name.'";';
-	}
-	$qy = $database->q($con, $q);
+	$billing = json_decode($json);
+	$qy = $database->q($con, 'SELECT * FROM facturas WHERE orden_cuenta ="'.$billing->account.'" AND nombre_cliente="'.$billing->name.'"');
 	if ($qy) {
 		$results = array();
+		$i = 1;
 		while($row = mysqli_fetch_array($qy, MYSQLI_BOTH)) {
-		 	$result = array('nombre' => $row['nombre'], 'telefono' => $row['telefono'], 'correo' => $row['correo'], 'fecha_ingreso' => $row['fecha_ingreso'], 'correo_contacto' => $row['correo_contacto'], 'telefono_contacto' => $row['telefono_contacto']);
+		 	$result = array('pid' => $i, 'id' => $row['id'], 'orden_cuenta' => $row['orden_cuenta'], 'nombre_cliente' => $row['nombre_cliente'], 'total_servicios' => $row['total_servicios'], 'comision_pago_tarjeta' => $row['comision_pago_tarjeta'], 'total_orden' => $row['total_orden']);
 		 	array_push($results, $result);
+		 	$i++;
 		 } 
 		$json_results = json_encode($results);
 		echo $json_results;
