@@ -103,6 +103,31 @@ app.controller('providersControl', function($scope, $http) {
 			console.log(response.data);
 		});
 	};
+
+	$scope.pdf = () => {
+		var rowsNumber = document.getElementsByName('providersTable')[0].rows.length;
+		var limit = (rowsNumber -1) * 6;
+		var rows = [];
+		for (var i = 0; i < limit; i++) {
+			var td = document.getElementsByTagName('td')[i].innerHTML;
+				rows.push(td);
+		}
+		j = 0;
+		var filas = [];
+		while(j < limit) {
+			var row = [rows[j], rows[j+1], rows[j+2], rows[j+3], rows[j+4], rows[j+5]];
+			filas.push(row);
+			j += 6;
+		}
+		console.log(filas);
+			var doc = new jsPDF();
+			var columns = ["ID", "Nombre de la Cuenta", "Nombre del Cliente", "Fecha del Trabajo", 'Total de Servicios', 'Total de la Orden'];
+			// add Image
+			doc.autoTable(columns, filas);
+			doc.save('ww.pdf');
+
+	};
+
 	$scope.checkLogin = () => {
 			if (!sessionStorage.getItem('user') || !sessionStorage.getItem('pw')) {
 				document.getElementById('menu').style.display = 'none';

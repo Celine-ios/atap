@@ -15,7 +15,7 @@ app.controller('accountsControl', function($scope, $http){
 				var contactName = document.getElementsByName('cont_name')[0].value;
 				if (name == '' && tel == '' && contactName == '') {
 								$scope.show();	
-								}				
+				}				
 			
 			$http.post('assets/php/searchAccountsFilters/index.php', {
 				name: name,
@@ -100,5 +100,41 @@ app.controller('accountsControl', function($scope, $http){
 		}, response => {
 			console.log(response.data);
 		});
+		};
+
+		$scope.pdf = () => {
+
+		var rowsNumber = document.getElementsByName('accountsTable')[0].rows.length;
+		var limit = (rowsNumber -1) * 6;
+		var rows = [];
+		for (var i = 0; i < limit; i++) {
+			var td = document.getElementsByTagName('td')[i].innerHTML;
+				rows.push(td);
+		}
+		j = 0;
+		var filas = [];
+		while(j < limit) {
+			var row = [rows[j], rows[j+1], rows[j+2], rows[j+3], rows[j+4], rows[j+5]];
+			filas.push(row);
+			j += 6;
+		}
+		console.log(filas);
+		var doc = new jsPDF('p', 'pt');
+		var columns = ['Nombre', 'Teléfono', 'Correo', 'Fecha Ingreso', 'Teléfono Cont.', 'Correo Cont.'];
+		doc.text(220, 40, 'ATAP COMPANY');
+		doc.text(230, 60, '& Installations');
+		//doc.addImage('assets/media/images/logo.png', 'PNG', 10, 10, 50, 50);
+		// Get In Here
+		// file:///C:/Users/PC/AppData/Local/Temp/Rar$EXa5784.45467/jsPDF-1.3.2/examples/basic.html
+		doc.setFontSize(6);
+		doc.text(260, 80, 'Dirección Empresa');
+		doc.text(250, 90, 'Phone: TELEFONO, Fax: FAX');
+		doc.text(260, 100, 'usuario@dominio.com');
+		doc.autoTable(columns, filas, {
+			margin: {
+				top: 300
+			}
+		});
+		doc.save('x.pdf');
 		};
 });

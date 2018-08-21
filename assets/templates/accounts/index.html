@@ -83,19 +83,22 @@
 		<label for="">Nombre Contacto</label>
 		<input type="text" class="form-control" name="cont_name" ng-keyup="search();">
 	</div>
-	<div class="col-sm-2" style="display: flex;justify-content: center;align-items: flex-end;">
+	<div class="col-sm-1" style="display: flex;justify-content: center;align-items: flex-end;">
 		<button class="btn btn-success">Buscar</button>
 	</div>
-	<div class="col-sm-1" style="display: flex;align-items: center;margin-top: 3.5%;">
-		<a href="#!agregar-cuentas"><i class="fas fa-plus" style="color: green;"></i></a>
-	</div>
+  <div class="col-sm-1" style="display: flex;align-items: center;margin-top: 3.5%;">
+    <a href="#!agregar-cuentas"><i class="fas fa-plus" style="color: green;"></i></a>
+  </div>
+  <div class="col-sm-1" style="display: flex; align-items: flex-end;">
+    <button class="btn btn-success" ng-click="pdf();">Crear PDF</button>
+  </div>
 </div>
 <div class="container" style="margin: 2%;padding: 2%; background: var(--primary);">
 	<div class="container" style="display: flex;justify-content: center;">
 		<span style="color: #fff;">Presiona sobre la fila para editar la información del Cliente</span>
 	</div>
 	<br>
-	<table class="table table-light table-striped">
+	<table class="table table-light table-striped" name="accountsTable">
 		<thead style="background: blue;color: #fff;">
 			<th>Nombre</th>
 			<th>Teléfono</th>

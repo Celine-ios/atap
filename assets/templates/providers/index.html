@@ -83,6 +83,9 @@
 		<label for="">Nombre Contacto</label>
 		<input type="text" class="form-control" name="con_name" ng-keyup="search();">
 	</div>
+  <div class="col-sm-2" style="display: flex;align-items: flex-end;">
+    <button class="btn btn-success" ng-click="pdf();">Crear PDF</button>
+  </div>
 	<div class="col-sm-1" style="display: flex;align-items: center;margin-top: 3.5%;">
 		<a href="#!agregar-proveedores"><i class="fas fa-plus" style="color: green;"></i></a>
 	</div>
@@ -92,7 +95,7 @@
 		<span style="color: #fff;">Presiona sobre la fila para editar la información del Cliente</span>
 	</div>
 	<br>
-	<table class="table table-light table-striped">
+	<table class="table table-light table-striped" name="providersTable">
 		<thead style="background: blue;color: #fff;">
 			<th>Nombre</th>
 			<th>Teléfono</th>

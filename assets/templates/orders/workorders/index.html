@@ -14,32 +14,32 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<label for="">Cuenta</label>
-			<select name="" id="" class="form-control">
-				<option value="">Opción</option>
-				<option value="">Opción</option>
-				<option value="">Opción</option>
-				<option value="">Opción</option>
+			<select name="" class="form-control" ng-repeat="r in results">
+				<option value="{{r.nombre}}">{{r.nombre}}</option>
 			</select>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<label for="">Nombre Cliente</label>
-			<input type="text" class="form-control">
+			<input type="text" class="form-control" name="cliente_filtro" ng-keyup="search();">
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<label for="">Período</label>
 			<div style="display: flex;flex-direction: row;">
 			<input type="date" name="" id="" class="form-control" style="margin-right: 2%;">
 			<input type="date" name="" id="" class="form-control">
 			</div>
 		</div>
+		<div class="col-sm-3" style="display: flex;align-items: flex-end;">
+			<button class="btn btn-success" ng-click="pdf();">Crear PDF</button>
+		</div>
 	</div>
 </div>
 <div class="container">
-	<table class="table table-light table-striped" style="margin-top: 4%;">
+	<table class="table table-light table-striped" style="margin-top: 4%;" name="woTable">
 		<thead style="background: blue;color: #fff;">
-			<th>ID</th>
+			<th>ID</th>	
 			<th>Nombre de la Cuenta</th>
 			<th>Nombre del cliente</th>
 			<th>Fecha del Trabajo</th>
