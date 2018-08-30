@@ -133,6 +133,6 @@ app.controller('quotationsControl', function($scope, $http){
 				document.getElementById('menu').style.display = 'none';
 				location.href = "#!error";
 			} 
-		};
+	};
 		$scope.checkLogin();	
 });

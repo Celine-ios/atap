@@ -13,8 +13,13 @@
 			</div>
 			<div class="col-sm-4">
 				<label for="">Puesto</label>
-				<input type="text" class="form-control" name="puesto" required ng-model="name">
-				<span class="ng-formie" ng-show="form.puesto.$invalid && form.puesto.$touched">Puesto Requerido</span>
+				<select class="form-control">
+					<option value="administrador">Administrador</option>
+      				<option value="contabilidad">Contabilidad</option>
+      				<option value="atencion_cliente">Atención al Cliente</option>
+      				<option value="tecnico">Técnico</option>
+      				<option value="conductor">Conductor</option>
+				</select>
 			</div>
 		</div>
 		<div class="row" style="display: flex;justify-content: center;">
@@ -25,7 +30,7 @@
 			</div>
 			<div class="col-sm-4">
 				<label for="">Teléfono</label>
-				<input type="tel" class="form-control" name="telefono" required ng-model="telefono">
+				<input type="tel" class="form-control" name="telefono" required ng-model="telefono" maxlength="10">
 				<span class="ng-formie" ng-show="form.telefono.$invalid && form.telefono.$touched">Teléfono Requerido</span>
 			</div>
 		</div>
@@ -97,8 +102,8 @@
 <option value="AE">Emiratos Árabes Unidos</option>
 <option value="ER">Eritrea</option>
 <option value="SI">Eslovenia</option>
-<option value="ES" selected>España</option>
-<option value="US">Estados Unidos</option>
+<option value="ES">España</option>
+<option value="US" selected>Estados Unidos</option>
 <option value="EE">Estonia</option>
 <option value="ET">Etiopía</option>
 <option value="FJ">Fiji</option>
@@ -271,7 +276,7 @@
 			</div>
 			<div class="col-sm-4">
 				<label for="">Celular</label>
-				<input type="tel" class="form-control" name="celular" required ng-model="celular">
+				<input type="tel" class="form-control" name="celular" required ng-model="celular" maxlength="10">
 				<span class="ng-formie" ng-show="form.celular.$invalid && form.celular.$touched">Celular Requerido</span>
 			</div>
 		</div>
@@ -295,7 +300,7 @@
 			</div>
 			<div class="col-sm-4">
 				<label for="">Usuario</label>
-				<input type="text" name="usuario" class="form-control" required ng-model="usuario">
+				<input type="text" name="usuario" class="form-control" required ng-model="usuario" minlength="6" maxlength="10">
 				<span class="ng-formie" ng-show="form.usuario.$invalid && form.usuario.$touched">Usuario Requerido</span>
 			</div>
 		</div>
@@ -307,7 +312,7 @@
 			</div>
 			<div class="col-sm-4">
 				<label for="">Contraseña</label>
-				<input type="password" class="form-control" name="contrasena" required ng-model="contrasena">
+				<input type="password" class="form-control" name="contrasena" required ng-model="contrasena" minlength="6" maxlength="8">
 				<span class="ng-formie" ng-show="form.contrasena.$invalid && form.contrasena.$touched">Contraseña Requerida</span>
 			</div>
 		</div>

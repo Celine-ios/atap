@@ -4,16 +4,16 @@
 			</header>
 			<div class="content">
 			<div class="container">
-				<span>Configuración</span>
-				<ul style="list-style-type: none;">
+				<span ng-click="display('config');">Configuración</span>
+				<ul style="list-style-type: none;" id="config-list">
 					<li><a href="#!informacion">Información</a></li>
 					<li><a href="#!generales">Generales</a></li>
 					<li><a href="#!perfiles">Perfiles</a></li>
 				</ul>
 			</div>
 			<div class="container">
-				<span>Catálogos</span>
-				<ul style="list-style-type: none;">
+				<span ng-click="display('catalogues');">Catálogos</span>
+				<ul style="list-style-type: none;" id="cat-list">
 					<li><a href="#!servicios">Servicios</a></li>
 					<li><a href="#!usuarios">Usuarios</a></li>
 					<li><a href="#!cuentas">Cuenta</a></li>
@@ -23,22 +23,22 @@
 			<div class="container">
 				<span>Registrar</span>
 				<div>
-					<span>Gastos</span>
-					<ul style="list-style-type: none;">
+					<span ng-click="display('spends');">Gastos</span>
+					<ul style="list-style-type: none;" id="spends-list">
 						<li><a href="#!agregar-gastos">Agregar</a></li>
 						<li><a href="#!consultar-gastos">Consultar</a></li>
 					</ul>
 				</div>
 				<div>
-					<span>Orden</span>
-					<ul style="list-style-type: none;">
+					<span ng-click="display('orders');">Orden</span>
+					<ul style="list-style-type: none;" id="orders-list">
 						<li><a href="">Agregar</a></li>
 						<li><a href="#!ordenes">Consultar</a></li>
 					</ul>
 				</div>
 				<div>
-					<span>Pago</span>
-					<ul style="list-style-type: none;">
+					<span ng-click="display('pays');">Pago</span>
+					<ul style="list-style-type: none;" id="pays-list">
 						<li><a href="">Agregar</a></li>
 						<li><a href="">Consultar</a></li>
 					</ul>
@@ -46,11 +46,14 @@
 				
 			</div>
 			<div class="container">
-				<span>Estado de Cuenta</span>
-				<ul style="list-style-type: none;">
+				<span ng-click="display('accountState');">Estado de Cuenta</span>
+				<ul style="list-style-type: none;" id="accountState-list">
 					<li><a href="#!ingresos">Ingresos</a></li>
 					<li><a href="#!egresos">Egresos</a></li>
 				</ul>
+			</div>
+			<div class="container">
+				<a href="#" onclick="location.href='#!';">Cerrar Sesión</a>
 			</div>
 			</div>
 		</aside>

@@ -62,5 +62,20 @@ app.controller('usersControl', function($scope, $http){
 		    document.getElementsByName('column-'+i)[0].value = columns[i];
 		}
 
-	};
+		};
+
+		$scope.setDate = () => {
+			var d = new Date(); 
+			var date = d.getUTCFullYear() + '' + (d.getUTCMonth() + 1) + '' + d.getUTCDate();
+			document.getElementById('inDate').value = date;
+		};
+
+		$scope.checkLogin = () => {
+			if (!sessionStorage.getItem('user') || !sessionStorage.getItem('pw')) {
+				document.getElementById('menu').style.display = 'none';
+				location.href = "#!error";
+			} 
+		};
+		$scope.setDate();
+		$scope.checkLogin();
 });

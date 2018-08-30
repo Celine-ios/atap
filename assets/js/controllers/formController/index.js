@@ -36,7 +36,8 @@ app.controller('formControl', function($scope, $http){
 
 			}).then(function(response) {
 				
-				  	alert("Se ha agregado el gasto correctamente");  
+				  	alert("Se ha agregado el gasto correctamente");
+				  	location.href = '#!consultar-gastos';  
 				  	console.log(response);
 				 
 			},function(response) {
@@ -47,4 +48,5 @@ app.controller('formControl', function($scope, $http){
 			}
 			
 		};	
+		
 });

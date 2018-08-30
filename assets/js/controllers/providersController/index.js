@@ -29,6 +29,7 @@ app.controller('providersControl', function($scope, $http) {
 
 		}).then((response) => {
 			alert('Proveedor Añadido Correctamente');
+			location.href = '#!proveedores';
 		}, (response) => {
 			console.log(response.data);
 		});
