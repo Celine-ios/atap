@@ -11,6 +11,17 @@ app.controller('formControl', function($scope, $http){
 			var spend = document.getElementsByName('spend')[0].value;
 			var folio = document.getElementsByName('folio')[0].value;
 			var notes = document.getElementsByName('notes')[0].value;
+
+			var d = new Date(); 
+
+			var date = d.getUTCMonth() < 10 ? d.getUTCFullYear() + '-0' + (d.getUTCMonth() + 1) + '-' + d.getUTCDate() : d.getUTCFullYear() + '-' + (d.getUTCMonth() + 1) + '-' + d.getUTCDate();
+
+			console.log(date);
+			console.log(spendDay);
+			if(date < spendDay) {
+				alert('La fecha introducida es mayor que la de hoy');
+				return;
+			}
 			
 			if (document.getElementsByName('file')[0].files[0]) {
 				var file = document.getElementsByName('file')[0].files[0];    
@@ -46,7 +57,24 @@ app.controller('formControl', function($scope, $http){
 			break;
 
 			}
-			
-		};	
+
+};	
+
+$scope.searchProviders = () => {
+	$http.get('assets/php/searchProviders/index.php').then((response) => {
+		response.data.forEach((provider) => {
+		  document.getElementsByName('provider')[0].innerHTML += '<option value="'+ provider.nombre +'">'+ provider.nombre +'</option>';
+		});
+	}, (response) => {
+		console.log(response);
+	});
+
+	setInterval(() => {
+	  	var taxVal = document.getElementsByName('tax')[0].value;
+	  	var importVal = document.getElementsByName('import')[0].value;
+	  		document.getElementsByName('spend')[0].value = importVal - taxVal;
+	}, 1000);
+};
+	$scope.searchProviders();
 		
 });
