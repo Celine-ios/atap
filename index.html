@@ -43,7 +43,7 @@
 <body>
 	<div class="container" ng-app="core" style="display: flex;flex-direction: row;">
 		<app-menu></app-menu>
-		<ng-view style="width: 100%;"></ng-view>
+		<ng-view style="width: 100%;" ng-controller="menuControl" ng-click="trigger();"></ng-view>
 	</div>
 	<!-- App -->
 	<script src="assets/js/index.js"></script>

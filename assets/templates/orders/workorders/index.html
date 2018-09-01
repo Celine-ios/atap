@@ -14,24 +14,24 @@
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<label for="">Cuenta</label>
 			<select name="" class="form-control" ng-repeat="r in results">
 				<option value="{{r.nombre}}">{{r.nombre}}</option>
 			</select>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<label for="">Nombre Cliente</label>
 			<input type="text" class="form-control" name="cliente_filtro" ng-keyup="search();">
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<label for="">Período</label>
 			<div style="display: flex;flex-direction: row;">
 			<input type="date" name="" id="" class="form-control" style="margin-right: 2%;">
 			<input type="date" name="" id="" class="form-control">
 			</div>
 		</div>
-		<div class="col-sm-3" style="display: flex;align-items: flex-end;">
+		<div class="col-sm-2" style="display: flex;align-items: flex-end;">
 			<button class="btn btn-success" ng-click="pdf();">Crear PDF</button>
 		</div>
 	</div>

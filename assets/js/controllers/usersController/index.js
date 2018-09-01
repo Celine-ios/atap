@@ -64,11 +64,11 @@ app.controller('usersControl', function($scope, $http){
 
 		};
 
-		$scope.setDate = () => {
+		/*$scope.setDate = () => {
 			var d = new Date(); 
 			var date = d.getUTCFullYear() + '' + (d.getUTCMonth() + 1) + '' + d.getUTCDate();
 			document.getElementById('inDate').value = date;
-		};
+		};*/
 
 		$scope.checkLogin = () => {
 			if (!sessionStorage.getItem('user') || !sessionStorage.getItem('pw')) {
@@ -76,6 +76,6 @@ app.controller('usersControl', function($scope, $http){
 				location.href = "#!error";
 			} 
 		};
-		$scope.setDate();
+		//$scope.setDate();
 		$scope.checkLogin();
 });

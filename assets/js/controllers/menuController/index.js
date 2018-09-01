@@ -8,7 +8,7 @@ app.controller('menuControl', function($scope){
 			head.style.width = '4em';
 			head.style.padding = '15%';
 
-		}
+		};
 		$scope.display = (list) => {
 			var lists = {
 				config: {
