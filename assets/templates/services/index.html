@@ -8,25 +8,19 @@
 		<div class="col-sm-3">
 			<label for="">Tipo de Servicio</label>
 			<select name="" class="form-control">
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
+				<option ng-repeat="service in services" value="service.tipo">{{service.tipo}}</option>
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label for="">Nombre Servicio</label>
 			<select name="" class="form-control">
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
+				<option ng-repeat="service in services" value="service.nombre">{{service.nombre}}</option>
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label for="">Cuenta</label>
 			<select name="" class="form-control">
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
+				<option ng-repeat="account in accounts" value="account.nombre">{{account.nombre}}</option>
 			</select>
 		</div>
 		<div class="col-sm-1" style="display: flex;align-items: center;margin-top: 3.5%;">

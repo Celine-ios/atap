@@ -44,6 +44,18 @@ app.controller('servicesControl', function($scope, $http){
 				return;
 			}
 		};
+		$scope.searchAccounts = () => {
+			$http.post('assets/php/searchAccounts/index.php').then(function(response) {
+				var accounts = response.data;
+				console.log(accounts);
+				$scope.accounts = accounts;
+			}, function(response) {
+				alert("Ha ocurrido un error al cargar las Cuentas");
+				return;
+			});
+		};
+		$scope.searchAccounts();
+		$scope.show();
 		$scope.checkLogin();
 		
 });

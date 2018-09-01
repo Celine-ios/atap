@@ -4,7 +4,7 @@
 	<hr style="background: #eee;height: 0.0008em;margin: 2% 10%;">
 </div>
 <div class="container" style="display: flex;flex-direction: row;margin: 2% 2%;">
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<label for="">Proveedor</label>
 			<select name="proveedor" class="form-control">
 					<option value="proveedor1">Opción</option>
@@ -13,7 +13,7 @@
 					<option value="proveedor4">Opción</option>
 			</select>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 		    <label for="">Tipo de Servicio</label>
             <select class="form-control" name="tipo_servicio">
 					<option value="insumo">Insumo</option>
@@ -24,12 +24,13 @@
 					<option value="Otros">Otros</option>
 			</select>
 		</div>
-		<div class="col-sm-3">
-			<label for="" style="text-align: center;">Período</label>
-			<div style="display: flex;justify-content: center;flex-direction: row;">
+		<div class="col-sm-2">
+			<label for="" style="text-align: center;">Per. Inicio</label>
 			<input type="date" class="form-control" style="margin-right: 2%;" name="periodo_inicio">
+		</div>
+		<div class="col-sm-2">
+			<label for="">Per. Final</label>
 			<input type="date" class="form-control" name="periodo_final">
-			</div>
 		</div>
 		<div class="col-sm-3" style="display: flex;align-items: flex-end;">
 			<button class="btn btn-success" ng-click="searchFilter();">Buscar</button>
