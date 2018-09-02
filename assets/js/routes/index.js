@@ -77,7 +77,9 @@ app.config(function($routeProvider) {
 		templateUrl: 'assets/templates/factorage/index.html'
 	}).when('/agregar-factura', {
 		templateUrl: 'assets/templates/billing/index.html'
-	}).when('/agregar-orden', {
+	}).when('/agregar-ordentrabajo', {
 		templateUrl: 'assets/templates/orders/workorders/add/index.html'
+	}).when('/agregar-orden', {
+		templateUrl: 'assets/templates/orders/add/index.html'
 	});
 });

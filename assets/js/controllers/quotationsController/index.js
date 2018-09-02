@@ -1,5 +1,6 @@
 app.controller('quotationsControl', function($scope, $http){
 	$scope.show = () => {
+
 		$http.post('assets/php/searchQuotations/index.php').then( response => {
 				var quotations = response.data;
 				console.log(quotations);
@@ -134,5 +135,16 @@ app.controller('quotationsControl', function($scope, $http){
 				location.href = "#!error";
 			} 
 	};
-		$scope.checkLogin();	
+	$scope.searchAccounts = () => {
+				$http.post('assets/php/searchAccounts/index.php').then(function(response) {
+				var accounts = response.data;
+				console.log(accounts);
+				$scope.accounts = accounts;
+			}, function(response) {
+				alert("Ha ocurrido un error al cargar las Cuentas");
+				return;
+			});
+	};
+	$scope.searchAccounts();
+	$scope.checkLogin();	
 });

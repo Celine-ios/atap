@@ -13,25 +13,23 @@
 	</div>
 </div>
 <div class="container" style="display: flex;flex-direction: row;margin: 2% 2%;">
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<label for="">Cuenta</label>
 			<select name="" id="" class="form-control">
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
-					<option value="">Opción</option>
+					<option ng-repeat="account in accounts" value="">{{account.nombre_cuenta}}</option>
 			</select>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 		    <label for="">Nombre Cliente</label>
             <input type="text" name="nombre_cliente" class="form-control">
 		</div>
-		<div class="col-sm-4">
-			<label for="" style="text-align: center;">Período</label>
-			<div style="display: flex;justify-content: center;flex-direction: row;">
+		<div class="col-sm-2">
+			<label for="" style="text-align: center;">Per. Inicio</label>
 			<input type="date" name="periodo_inicio" class="form-control" style="margin-right: 2%;">
+		</div>
+		<div class="col-sm-2">
+			<label for="">Per. Final</label>
 			<input type="date" name="periodo_final" class="form-control">
-			</div>
 		</div>
 		<div class="col-sm-2" style="display: flex; align-items: flex-end;">
 			<button class="btn btn-success" type="button" ng-click="pdf();">Crear PDF</button>

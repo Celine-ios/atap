@@ -25,7 +25,7 @@ app.controller('menuControl', function($scope){
 				},
 				orders: {
 					id: 'orders-list',
-					content: '<li><a href="">Agregar</a></li><li><a href="#!ordenes">Consultar</a></li>'
+					content: '<li><a href="#!agregar-orden">Agregar</a></li><li><a href="#!ordenes">Consultar</a></li>'
 				},
 				pays: {
 					id: 'pays-list',
